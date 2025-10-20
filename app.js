@@ -66,11 +66,8 @@ cookie:{
 } 
 }
 
-
-
-
-    app.use(express_sessions(session_options))
-    app.use(flash())
+app.use(express_sessions(session_options))
+app.use(flash())
 
 
 app.use(passport.initialize())
@@ -82,19 +79,20 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req,res,next)=>{
     res.locals.success=req.flash("success")
-        res.locals.error=req.flash("error")
-        res.locals.curruser=req.user
+    res.locals.error=req.flash("error")
+    res.locals.curruser=req.user
     next()
 }) 
 
 
 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
 app.use("/listings",listingsrouter)
 app.use("/listings/:id/reviews",reviewsrouter)
 app.use("/",userrouter)
-
-
-        
 
 
 app.use((req,res,next)=>{
@@ -106,6 +104,7 @@ app.use((err,req,res,next)=>{
     let{statusCode=500,message="something went wrong"}=err;
     res.status(statusCode).render("listings/error.ejs",{message})
 })  
+
 
 
 app.listen(8080,()=>{
