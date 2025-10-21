@@ -48,6 +48,7 @@ module.exports.show=async (req,res)=>{
               //create route controller                 
 
 module.exports.create=async (req,res,next)=>{
+  console.log(req.body)
     let url=req.file.path;
     let filename=req.file.filename;
     const newlisting=new Listing(req.body.listing)
