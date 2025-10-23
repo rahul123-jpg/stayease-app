@@ -20,7 +20,7 @@ module.exports.signup=async(req,res)=>{
         if(err){
             return next()
         }
-        req.flash("success","Welcome to Airbnb")
+        req.flash("success","Welcome to Stayease")
     res.redirect("/listings")
     })
     
@@ -44,7 +44,7 @@ module.exports.renderlogin=(req,res)=>{
 
 module.exports.login=async(req,res)=>{
     console.log(req.params)
-    req.flash("success","welcome to airbnb app")
+    req.flash("success","welcome to Stayease app")
     let redirectUrl=res.locals.redirectUrl||"/listings"
     res.redirect(redirectUrl)
 }
