@@ -66,7 +66,7 @@ Review Model: Stores user reviews and ratings for listings.
 To run this project locally:
 
 # Clone the repository
-git clone https://github.com/yourusername/StayEase.git
+git clone https://github.com/rahulsingh/StayEase.git
 
 # Go to the project directory
 cd StayEase
